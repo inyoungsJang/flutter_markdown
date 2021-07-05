@@ -8,6 +8,7 @@ import 'package:flutter_application_ex/lay_Expanded.dart';
 import 'package:flutter_application_ex/lay_GridView.dart';
 import 'package:flutter_application_ex/lay_IntrinsicWidth.dart';
 import 'package:flutter_application_ex/lay_ListView.dart';
+import 'package:flutter_application_ex/lay_Stack.dart';
 
 void main() {
   runApp(MyApp());
@@ -50,7 +51,8 @@ class _MyHomePageState extends State<MyHomePage> {
             //LayoutIntrinsicWidth(),
             //LayoutGridView(),
             //LayoutExpanded(),
-            LayoutListView(),
+            //LayoutListView(),
+            LayoutStack(),
           ],
         ),
       ),

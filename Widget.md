@@ -15,7 +15,8 @@ https://api.flutter.dev/flutter/widgets/Expanded-class.html
 위젯의 타입 Stateless(정적), Statefull(동적)  
 [GridView](#gridview)  
 [ListView](#listview)  
-Stack  
+[Stack](#stack)  
+[Positioned](#positioned)    
 Flex   
 [Card](#card)  
 [Expanded](#expanded)  
@@ -26,6 +27,9 @@ Material
 ConstraineBox  
 [IntrinsicWidth & IntrinsicHeight](#intrinsicwidth--intrinsicheight)  
 PageView  
+
+
+
 
 
 
@@ -384,7 +388,98 @@ GridView(
 
 Expanded()로 main.dart에 사용된 LayoutGridView()를 감싸줘야 hasSize에러가 발생안한다. 또는 GridView위젯에 <span style="color:red">shrinkWrap: true </span>를 입력해줘도 된다.
 
-  <br><br>
+<br><br> 
+
+# Stack
+- 스택(Stack)은 사전적 의모로 '쌓다', '더미'라는 뜻을 가지고있다.  
+- 스택을 흔히 후입선출 또는 선출후입, LIFO(Last In First Out)라고 불린다.
+- 주로 Positioned와 같이 쓰이며 Positioned 는 위젯의 위치를 지정해준다.
+
+### 속성 소개
+
+### 사용 예제
+
+~~~dart
+Stack(
+      children: [
+        Image.network(
+            "http://imgc.1300k.com/aaaaaib/goods/215024/58/215024585299.jpg?3"),
+        Image.asset(
+          "assets/images/animal01.png",
+          width: 300,
+        ),
+        Container(
+          color: Colors.yellow,
+          width: 50,
+          height: 50,
+        ),
+        Text(
+          "Animal ",
+          style: TextStyle(fontSize: 60),
+        ),
+      ],
+    );
+~~~
+
+### 결과 화면
+- lay_Stack.dart
+![](images/iPhone%2012%20Pro%202021-07-05%2011-13-26.png)
+
+
+<br><br>
+
+
+# Positioned 
+- 위치를 지정해준다.
+
+
+### 속성 소개
+
+### 사용 예제
+
+~~~dart
+Container(
+      color: Colors.white,
+      height: MediaQuery.of(context).size.height,
+      child: Stack(
+        children: [
+          Image.network(
+              "http://imgc.1300k.com/aaaaaib/goods/215024/58/215024585299.jpg?3"),
+          Positioned(
+            bottom: 200,
+            left: 40,
+            child: Image.asset(
+              "assets/images/animal01.png",
+              width: 300,
+            ),
+          ),
+          Positioned(
+            bottom: 400,
+            left: 100,
+            child: Container(
+              color: Colors.yellow,
+              width: 50,
+              height: 50,
+            ),
+          ),
+          Positioned(
+            right: 100,
+            top: 200,
+            child: Text(
+              "Animal ",
+              style: TextStyle(fontSize: 60),
+            ),
+          ),
+        ],
+      ),
+    );
+~~~
+
+### 결과 화면
+- lay_Stack.dart
+![](images/iPhone%2012%20Pro%202021-07-05%2011-25-58.png)
+
+<br><br>
 
   # IntrinsicWidth & IntrinsicHeight 
   - IntrinsicWidth 위젯은 자식위젯들 중에 가장 큰 길이(width)의 값을 가진 위젯의 길이에 맞게 자식위젯들의 길이도 동일하게 적용된다. Column위젯에 쓰인다
